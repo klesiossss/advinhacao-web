@@ -1,0 +1,65 @@
+
+
+
+<div>
+    <label class ="col-sm-3 col-form-label"> Nome</label>
+    
+    <input class="form-control" placeholder="Enter name" id="name" [(ngModel)]="nome"
+    placeholder="Digite seu nome">
+   
+    <button  (click)="jogar()" [disabled] = "nome == ''" class="btn btn-primary" >
+        Jogar
+    </button>
+    <button  (click)="jogar()" *ngIf = "showButton === true" class="btn btn-primary" >
+        Replay
+    </button>
+
+ </div>
+
+
+
+ <div>
+    <div>
+        <label class ="col-sm-2 col-form-label"> </label>
+        <h5 *ngIf = "showButton === true">Ola {{this.nome}}!  Pense em um numero enquanto advinho!</h5>
+        
+        
+        <h1 *ngIf = "showButton === true">{{numero}} </h1>
+        </div>
+
+        <button (click)="menor()"  *ngIf = "showButton === true" class="btn btn-primary" >
+            menor
+        </button> 
+        <button (click)="maior()" *ngIf = "showButton === true" class="btn btn-primary" >
+            maior
+        </button> 
+        <button (click)="igual()" *ngIf = "showButton === true" class="btn btn-primary" >
+            igual
+        </button> 
+ </div>
+
+<div>
+
+    <table class="table table-striped">
+        <thead> 
+            <tr>
+                <th>id</th>
+                <th>nome</th>
+                <th>chutes</th>
+                <th>tempo</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let rk of rankings">
+                <td>{{rk.id}}</td>
+                <td>{{rk.jogador.nome}}</td>
+                <td>{{rk.chutes}}</td>
+                <td>{{rk.tempo}}</td>
+                
+            </tr>
+            
+        </tbody>
+    
+    </table>
+
+</div>
